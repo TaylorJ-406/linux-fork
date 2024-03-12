@@ -1839,7 +1839,7 @@ int vfs_create(struct mnt_idmap *, struct inode *,
 	       struct dentry *, umode_t, bool);
 int vfs_mkdir(struct mnt_idmap *, struct inode *,
 	      struct dentry *, umode_t);
-int vfs_mknod(struct mnt_idmap *, struct inode *, struct dentry *,
+int vfs_mknod(const struct mnt_idmap *, struct inode *, struct dentry *,
               umode_t, dev_t);
 int vfs_symlink(struct mnt_idmap *, struct inode *,
 		struct dentry *, const char *);
@@ -2049,7 +2049,7 @@ struct inode_operations {
 	int (*mkdir) (struct mnt_idmap *, struct inode *,struct dentry *,
 		      umode_t);
 	int (*rmdir) (struct inode *,struct dentry *);
-	int (*mknod) (struct mnt_idmap *, struct inode *,struct dentry *,
+	int (*mknod) (const struct mnt_idmap *, struct inode *,struct dentry *,
 		      umode_t,dev_t);
 	int (*rename) (struct mnt_idmap *, struct inode *, struct dentry *,
 			struct inode *, struct dentry *, unsigned int);

@@ -120,7 +120,7 @@ static int ntfs_create(struct mnt_idmap *idmap, struct inode *dir,
  *
  * inode_operations::mknod
  */
-static int ntfs_mknod(struct mnt_idmap *idmap, struct inode *dir,
+static int ntfs_mknod(const struct mnt_idmap *idmap, struct inode *dir,
 		      struct dentry *dentry, umode_t mode, dev_t rdev)
 {
 	struct inode *inode;

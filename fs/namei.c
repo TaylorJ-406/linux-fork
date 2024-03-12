@@ -3976,7 +3976,7 @@ EXPORT_SYMBOL(user_path_create);
  * On non-idmapped mounts or if permission checking is to be performed on the
  * raw inode simply pass @nop_mnt_idmap.
  */
-int vfs_mknod(struct mnt_idmap *idmap, struct inode *dir,
+int vfs_mknod(const struct mnt_idmap *idmap, struct inode *dir,
 	      struct dentry *dentry, umode_t mode, dev_t dev)
 {
 	bool is_whiteout = S_ISCHR(mode) && dev == WHITEOUT_DEV;

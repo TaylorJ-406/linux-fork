@@ -371,7 +371,7 @@ static struct dentry *bch2_lookup(struct inode *vdir, struct dentry *dentry,
 	return d_splice_alias(vinode, dentry);
 }
 
-static int bch2_mknod(struct mnt_idmap *idmap,
+static int bch2_mknod(const struct mnt_idmap *idmap,
 		      struct inode *vdir, struct dentry *dentry,
 		      umode_t mode, dev_t rdev)
 {
