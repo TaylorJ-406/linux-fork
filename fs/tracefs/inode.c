@@ -85,7 +85,7 @@ static char *get_dname(struct dentry *dentry)
 	return name;
 }
 
-static int tracefs_syscall_mkdir(struct mnt_idmap *idmap,
+static int tracefs_syscall_mkdir(const struct mnt_idmap *idmap,
 				 struct inode *inode, struct dentry *dentry,
 				 umode_t mode)
 {

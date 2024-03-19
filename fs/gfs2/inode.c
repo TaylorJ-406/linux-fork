@@ -1250,7 +1250,7 @@ static int gfs2_symlink(struct mnt_idmap *idmap, struct inode *dir,
  * Returns: errno
  */
 
-static int gfs2_mkdir(struct mnt_idmap *idmap, struct inode *dir,
+static int gfs2_mkdir(const struct mnt_idmap *idmap, struct inode *dir,
 		      struct dentry *dentry, umode_t mode)
 {
 	unsigned dsize = gfs2_max_stuffed_size(GFS2_I(dir));

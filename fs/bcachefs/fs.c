@@ -527,7 +527,7 @@ err:
 	return bch2_err_class(ret);
 }
 
-static int bch2_mkdir(struct mnt_idmap *idmap,
+static int bch2_mkdir(const struct mnt_idmap *idmap,
 		      struct inode *vdir, struct dentry *dentry, umode_t mode)
 {
 	return bch2_mknod(idmap, vdir, dentry, mode|S_IFDIR, 0);

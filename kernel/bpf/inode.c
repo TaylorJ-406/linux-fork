@@ -149,7 +149,7 @@ static void bpf_dentry_finalize(struct dentry *dentry, struct inode *inode,
 	inode_set_mtime_to_ts(dir, inode_set_ctime_current(dir));
 }
 
-static int bpf_mkdir(struct mnt_idmap *idmap, struct inode *dir,
+static int bpf_mkdir(const struct mnt_idmap *idmap, struct inode *dir,
 		     struct dentry *dentry, umode_t mode)
 {
 	struct inode *inode;

@@ -166,7 +166,7 @@ err_out:
 	return error;
 }
 
-static int coda_mkdir(struct mnt_idmap *idmap, struct inode *dir,
+static int coda_mkdir(const struct mnt_idmap *idmap, struct inode *dir,
 		      struct dentry *de, umode_t mode)
 {
 	struct inode *inode;

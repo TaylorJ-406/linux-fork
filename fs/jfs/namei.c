@@ -192,7 +192,7 @@ static int jfs_create(const struct mnt_idmap *idmap, struct inode *dip,
  * note:
  * EACCES: user needs search+write permission on the parent directory
  */
-static int jfs_mkdir(struct mnt_idmap *idmap, struct inode *dip,
+static int jfs_mkdir(const struct mnt_idmap *idmap, struct inode *dip,
 		     struct dentry *dentry, umode_t mode)
 {
 	int rc = 0;

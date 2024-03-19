@@ -775,7 +775,7 @@ out_failed:
 	return retval;
 }
 
-static int reiserfs_mkdir(struct mnt_idmap *idmap, struct inode *dir,
+static int reiserfs_mkdir(const struct mnt_idmap *idmap, struct inode *dir,
 			  struct dentry *dentry, umode_t mode)
 {
 	int retval;

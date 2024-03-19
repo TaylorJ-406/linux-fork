@@ -339,7 +339,7 @@ out:
 }
 
 /***** Make a directory */
-static int msdos_mkdir(struct mnt_idmap *idmap, struct inode *dir,
+static int msdos_mkdir(const struct mnt_idmap *idmap, struct inode *dir,
 		       struct dentry *dentry, umode_t mode)
 {
 	struct super_block *sb = dir->i_sb;

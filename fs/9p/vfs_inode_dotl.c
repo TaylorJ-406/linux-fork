@@ -352,7 +352,7 @@ out:
  *
  */
 
-static int v9fs_vfs_mkdir_dotl(struct mnt_idmap *idmap,
+static int v9fs_vfs_mkdir_dotl(const struct mnt_idmap *idmap,
 			       struct inode *dir, struct dentry *dentry,
 			       umode_t omode)
 {

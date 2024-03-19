@@ -305,7 +305,7 @@ out:
 	return ret;
 }
 
-static int orangefs_mkdir(struct mnt_idmap *idmap, struct inode *dir,
+static int orangefs_mkdir(const struct mnt_idmap *idmap, struct inode *dir,
 			  struct dentry *dentry, umode_t mode)
 {
 	struct orangefs_inode_s *parent = ORANGEFS_I(dir);

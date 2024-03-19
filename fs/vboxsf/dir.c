@@ -302,7 +302,7 @@ static int vboxsf_dir_mkfile(const struct mnt_idmap *idmap,
 	return vboxsf_dir_create(parent, dentry, mode, false, excl, NULL);
 }
 
-static int vboxsf_dir_mkdir(struct mnt_idmap *idmap,
+static int vboxsf_dir_mkdir(const struct mnt_idmap *idmap,
 			    struct inode *parent, struct dentry *dentry,
 			    umode_t mode)
 {

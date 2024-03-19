@@ -3295,7 +3295,7 @@ out_iput:
 	return error;
 }
 
-static int shmem_mkdir(struct mnt_idmap *idmap, struct inode *dir,
+static int shmem_mkdir(const struct mnt_idmap *idmap, struct inode *dir,
 		       struct dentry *dentry, umode_t mode)
 {
 	int error;

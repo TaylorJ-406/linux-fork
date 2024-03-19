@@ -110,7 +110,7 @@ ramfs_mknod(const struct mnt_idmap *idmap, struct inode *dir,
 	return error;
 }
 
-static int ramfs_mkdir(struct mnt_idmap *idmap, struct inode *dir,
+static int ramfs_mkdir(const struct mnt_idmap *idmap, struct inode *dir,
 		       struct dentry *dentry, umode_t mode)
 {
 	int retval = ramfs_mknod(&nop_mnt_idmap, dir, dentry, mode | S_IFDIR, 0);
