@@ -218,7 +218,7 @@ struct inode *bch2_vfs_inode_get(struct bch_fs *c, subvol_inum inum)
 }
 
 struct bch_inode_info *
-__bch2_create(struct mnt_idmap *idmap,
+__bch2_create(const struct mnt_idmap *idmap,
 	      struct bch_inode_info *dir, struct dentry *dentry,
 	      umode_t mode, dev_t rdev, subvol_inum snapshot_src,
 	      unsigned flags)
@@ -386,7 +386,7 @@ static int bch2_mknod(const struct mnt_idmap *idmap,
 	return 0;
 }
 
-static int bch2_create(struct mnt_idmap *idmap,
+static int bch2_create(const struct mnt_idmap *idmap,
 		       struct inode *vdir, struct dentry *dentry,
 		       umode_t mode, bool excl)
 {

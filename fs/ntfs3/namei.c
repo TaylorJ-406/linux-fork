@@ -104,7 +104,7 @@ static struct dentry *ntfs_lookup(struct inode *dir, struct dentry *dentry,
 /*
  * ntfs_create - inode_operations::create
  */
-static int ntfs_create(struct mnt_idmap *idmap, struct inode *dir,
+static int ntfs_create(const struct mnt_idmap *idmap, struct inode *dir,
 		       struct dentry *dentry, umode_t mode, bool excl)
 {
 	struct inode *inode;

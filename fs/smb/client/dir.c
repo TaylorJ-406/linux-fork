@@ -530,7 +530,7 @@ out_free_xid:
 	return rc;
 }
 
-int cifs_create(struct mnt_idmap *idmap, struct inode *inode,
+int cifs_create(const struct mnt_idmap *idmap, struct inode *inode,
 		struct dentry *direntry, umode_t mode, bool excl)
 {
 	int rc;

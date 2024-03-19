@@ -659,7 +659,7 @@ static int ocfs2_mkdir(struct mnt_idmap *idmap,
 	return ret;
 }
 
-static int ocfs2_create(struct mnt_idmap *idmap,
+static int ocfs2_create(const struct mnt_idmap *idmap,
 			struct inode *dir,
 			struct dentry *dentry,
 			umode_t mode,

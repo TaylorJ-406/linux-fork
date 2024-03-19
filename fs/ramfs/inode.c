@@ -119,7 +119,7 @@ static int ramfs_mkdir(struct mnt_idmap *idmap, struct inode *dir,
 	return retval;
 }
 
-static int ramfs_create(struct mnt_idmap *idmap, struct inode *dir,
+static int ramfs_create(const struct mnt_idmap *idmap, struct inode *dir,
 			struct dentry *dentry, umode_t mode, bool excl)
 {
 	return ramfs_mknod(&nop_mnt_idmap, dir, dentry, mode | S_IFREG, 0);

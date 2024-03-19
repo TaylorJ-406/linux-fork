@@ -63,7 +63,7 @@ static int minix_tmpfile(struct mnt_idmap *idmap, struct inode *dir,
 	return finish_open_simple(file, 0);
 }
 
-static int minix_create(struct mnt_idmap *idmap, struct inode *dir,
+static int minix_create(const struct mnt_idmap *idmap, struct inode *dir,
 			struct dentry *dentry, umode_t mode, bool excl)
 {
 	return minix_mknod(&nop_mnt_idmap, dir, dentry, mode, 0);

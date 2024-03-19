@@ -1835,7 +1835,7 @@ bool inode_owner_or_capable(const struct mnt_idmap *idmap,
 /*
  * VFS helper functions..
  */
-int vfs_create(struct mnt_idmap *, struct inode *,
+int vfs_create(const struct mnt_idmap *, struct inode *,
 	       struct dentry *, umode_t, bool);
 int vfs_mkdir(struct mnt_idmap *, struct inode *,
 	      struct dentry *, umode_t);
@@ -2040,7 +2040,7 @@ struct inode_operations {
 
 	int (*readlink) (struct dentry *, char __user *,int);
 
-	int (*create) (struct mnt_idmap *, struct inode *,struct dentry *,
+	int (*create) (const struct mnt_idmap *, struct inode *,struct dentry *,
 		       umode_t, bool);
 	int (*link) (struct dentry *,struct inode *,struct dentry *);
 	int (*unlink) (struct inode *,struct dentry *);

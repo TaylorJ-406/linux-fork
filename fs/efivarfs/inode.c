@@ -74,7 +74,7 @@ bool efivarfs_valid_name(const char *str, int len)
 	return uuid_is_valid(s);
 }
 
-static int efivarfs_create(struct mnt_idmap *idmap, struct inode *dir,
+static int efivarfs_create(const struct mnt_idmap *idmap, struct inode *dir,
 			   struct dentry *dentry, umode_t mode, bool excl)
 {
 	struct efivarfs_fs_info *info = dir->i_sb->s_fs_info;

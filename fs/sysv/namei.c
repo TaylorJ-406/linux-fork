@@ -61,7 +61,7 @@ static int sysv_mknod(const struct mnt_idmap *idmap, struct inode *dir,
 	return err;
 }
 
-static int sysv_create(struct mnt_idmap *idmap, struct inode *dir,
+static int sysv_create(const struct mnt_idmap *idmap, struct inode *dir,
 		       struct dentry *dentry, umode_t mode, bool excl)
 {
 	return sysv_mknod(&nop_mnt_idmap, dir, dentry, mode, 0);
