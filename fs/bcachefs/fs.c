@@ -492,7 +492,7 @@ static int bch2_unlink(struct inode *vdir, struct dentry *dentry)
 	return bch2_err_class(ret);
 }
 
-static int bch2_symlink(struct mnt_idmap *idmap,
+static int bch2_symlink(const struct mnt_idmap *idmap,
 			struct inode *vdir, struct dentry *dentry,
 			const char *symname)
 {

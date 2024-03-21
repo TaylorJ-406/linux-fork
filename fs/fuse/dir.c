@@ -904,7 +904,7 @@ static int fuse_mkdir(const struct mnt_idmap *idmap, struct inode *dir,
 	return create_new_entry(fm, &args, dir, entry, S_IFDIR);
 }
 
-static int fuse_symlink(struct mnt_idmap *idmap, struct inode *dir,
+static int fuse_symlink(const struct mnt_idmap *idmap, struct inode *dir,
 			struct dentry *entry, const char *link)
 {
 	struct fuse_mount *fm = get_fuse_mount(dir);

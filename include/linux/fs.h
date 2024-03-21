@@ -1841,7 +1841,7 @@ int vfs_mkdir(const struct mnt_idmap *, struct inode *,
 	      struct dentry *, umode_t);
 int vfs_mknod(const struct mnt_idmap *, struct inode *, struct dentry *,
               umode_t, dev_t);
-int vfs_symlink(struct mnt_idmap *, struct inode *,
+int vfs_symlink(const struct mnt_idmap *, struct inode *,
 		struct dentry *, const char *);
 int vfs_link(struct dentry *, struct mnt_idmap *, struct inode *,
 	     struct dentry *, struct inode **);
@@ -2044,7 +2044,7 @@ struct inode_operations {
 		       umode_t, bool);
 	int (*link) (struct dentry *,struct inode *,struct dentry *);
 	int (*unlink) (struct inode *,struct dentry *);
-	int (*symlink) (struct mnt_idmap *, struct inode *,struct dentry *,
+	int (*symlink) (const struct mnt_idmap *, struct inode *,struct dentry *,
 			const char *);
 	int (*mkdir) (const struct mnt_idmap *, struct inode *,struct dentry *,
 		      umode_t);

@@ -1091,7 +1091,7 @@ out_unlink:
 	return retval;
 }
 
-static int reiserfs_symlink(struct mnt_idmap *idmap,
+static int reiserfs_symlink(const struct mnt_idmap *idmap,
 			    struct inode *parent_dir, struct dentry *dentry,
 			    const char *symname)
 {

@@ -137,7 +137,7 @@ static int get_target(const char *symname, struct path *path,
 }
 
 
-int configfs_symlink(struct mnt_idmap *idmap, struct inode *dir,
+int configfs_symlink(const struct mnt_idmap *idmap, struct inode *dir,
 		     struct dentry *dentry, const char *symname)
 {
 	int ret;

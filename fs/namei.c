@@ -4465,7 +4465,7 @@ SYSCALL_DEFINE1(unlink, const char __user *, pathname)
  * On non-idmapped mounts or if permission checking is to be performed on the
  * raw inode simply pass @nop_mnt_idmap.
  */
-int vfs_symlink(struct mnt_idmap *idmap, struct inode *dir,
+int vfs_symlink(const struct mnt_idmap *idmap, struct inode *dir,
 		struct dentry *dentry, const char *oldname)
 {
 	int error;
