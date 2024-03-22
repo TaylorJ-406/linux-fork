@@ -533,7 +533,7 @@ static int bch2_mkdir(const struct mnt_idmap *idmap,
 	return bch2_mknod(idmap, vdir, dentry, mode|S_IFDIR, 0);
 }
 
-static int bch2_rename2(struct mnt_idmap *idmap,
+static int bch2_rename2(const struct mnt_idmap *idmap,
 			struct inode *src_vdir, struct dentry *src_dentry,
 			struct inode *dst_vdir, struct dentry *dst_dentry,
 			unsigned flags)

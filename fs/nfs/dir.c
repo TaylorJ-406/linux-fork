@@ -2644,7 +2644,7 @@ nfs_unblock_rename(struct rpc_task *task, struct nfs_renamedata *data)
  * If these conditions are met, we can drop the dentries before doing
  * the rename.
  */
-int nfs_rename(struct mnt_idmap *idmap, struct inode *old_dir,
+int nfs_rename(const struct mnt_idmap *idmap, struct inode *old_dir,
 	       struct dentry *old_dentry, struct inode *new_dir,
 	       struct dentry *new_dentry, unsigned int flags)
 {

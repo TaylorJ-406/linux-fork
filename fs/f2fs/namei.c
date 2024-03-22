@@ -949,7 +949,7 @@ int f2fs_get_tmpfile(struct mnt_idmap *idmap, struct inode *dir,
 	return __f2fs_tmpfile(idmap, dir, NULL, S_IFREG, false, new_inode);
 }
 
-static int f2fs_rename(struct mnt_idmap *idmap, struct inode *old_dir,
+static int f2fs_rename(const struct mnt_idmap *idmap, struct inode *old_dir,
 			struct dentry *old_dentry, struct inode *new_dir,
 			struct dentry *new_dentry, unsigned int flags)
 {
@@ -1306,7 +1306,7 @@ out:
 	return err;
 }
 
-static int f2fs_rename2(struct mnt_idmap *idmap,
+static int f2fs_rename2(const struct mnt_idmap *idmap,
 			struct inode *old_dir, struct dentry *old_dentry,
 			struct inode *new_dir, struct dentry *new_dentry,
 			unsigned int flags)
