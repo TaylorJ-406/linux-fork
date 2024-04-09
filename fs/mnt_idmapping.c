@@ -67,7 +67,7 @@ static inline bool initial_idmapping(const struct user_namespace *ns)
  * returned.
  */
 
-vfsuid_t make_vfsuid(struct mnt_idmap *idmap,
+vfsuid_t make_vfsuid(const struct mnt_idmap *idmap,
 		     struct user_namespace *fs_userns,
 		     kuid_t kuid)
 {
@@ -105,7 +105,7 @@ EXPORT_SYMBOL_GPL(make_vfsuid);
  * If @kgid has no mapping in either @idmap or @fs_userns INVALID_GID is
  * returned.
  */
-vfsgid_t make_vfsgid(struct mnt_idmap *idmap,
+vfsgid_t make_vfsgid(const struct mnt_idmap *idmap,
 		     struct user_namespace *fs_userns, kgid_t kgid)
 {
 	gid_t gid;
@@ -133,7 +133,7 @@ EXPORT_SYMBOL_GPL(make_vfsgid);
  *
  * Return: @vfsuid mapped into the filesystem idmapping
  */
-kuid_t from_vfsuid(struct mnt_idmap *idmap,
+kuid_t from_vfsuid(const struct mnt_idmap *idmap,
 		   struct user_namespace *fs_userns, vfsuid_t vfsuid)
 {
 	uid_t uid;
@@ -160,7 +160,7 @@ EXPORT_SYMBOL_GPL(from_vfsuid);
  *
  * Return: @vfsgid mapped into the filesystem idmapping
  */
-kgid_t from_vfsgid(struct mnt_idmap *idmap,
+kgid_t from_vfsgid(const struct mnt_idmap *idmap,
 		   struct user_namespace *fs_userns, vfsgid_t vfsgid)
 {
 	gid_t gid;
