@@ -3150,7 +3150,7 @@ EXPORT_SYMBOL(unlock_rename);
  *
  * Returns: mode to be passed to the filesystem
  */
-static inline umode_t vfs_prepare_mode(struct mnt_idmap *idmap,
+static inline umode_t vfs_prepare_mode(const struct mnt_idmap *idmap,
 				       const struct inode *dir, umode_t mode,
 				       umode_t mask_perms, umode_t type)
 {
