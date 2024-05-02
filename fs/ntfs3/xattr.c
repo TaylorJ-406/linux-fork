@@ -703,7 +703,7 @@ int ntfs_init_acl(const struct mnt_idmap *idmap, struct inode *inode,
 /*
  * ntfs_acl_chmod - Helper for ntfs3_setattr().
  */
-int ntfs_acl_chmod(struct mnt_idmap *idmap, struct dentry *dentry)
+int ntfs_acl_chmod(const struct mnt_idmap *idmap, struct dentry *dentry)
 {
 	struct inode *inode = d_inode(dentry);
 	struct super_block *sb = inode->i_sb;

@@ -671,7 +671,7 @@ out:
 /*
  * ntfs3_setattr - inode_operations::setattr
  */
-int ntfs3_setattr(struct mnt_idmap *idmap, struct dentry *dentry,
+int ntfs3_setattr(const struct mnt_idmap *idmap, struct dentry *dentry,
 		  struct iattr *attr)
 {
 	struct inode *inode = d_inode(dentry);

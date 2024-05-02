@@ -998,7 +998,7 @@ xfs_vn_setattr_size(
 
 STATIC int
 xfs_vn_setattr(
-	struct mnt_idmap	*idmap,
+	const struct mnt_idmap	*idmap,
 	struct dentry		*dentry,
 	struct iattr		*iattr)
 {

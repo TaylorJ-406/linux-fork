@@ -20,7 +20,7 @@ static inline struct quota_info *sb_dqopt(struct super_block *sb)
 }
 
 /* i_mutex must being held */
-static inline bool is_quota_modification(struct mnt_idmap *idmap,
+static inline bool is_quota_modification(const struct mnt_idmap *idmap,
 					 struct inode *inode, struct iattr *ia)
 {
 	return ((ia->ia_valid & ATTR_SIZE) ||

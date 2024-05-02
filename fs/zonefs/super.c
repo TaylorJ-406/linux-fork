@@ -550,7 +550,7 @@ static int zonefs_remount(struct super_block *sb, int *flags, char *data)
 	return zonefs_parse_options(sb, data);
 }
 
-static int zonefs_inode_setattr(struct mnt_idmap *idmap,
+static int zonefs_inode_setattr(const struct mnt_idmap *idmap,
 				struct dentry *dentry, struct iattr *iattr)
 {
 	struct inode *inode = d_inode(dentry);

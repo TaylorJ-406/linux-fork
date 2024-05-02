@@ -924,7 +924,7 @@ out:
 	return error;
 }
 
-static int hugetlbfs_setattr(struct mnt_idmap *idmap,
+static int hugetlbfs_setattr(const struct mnt_idmap *idmap,
 			     struct dentry *dentry, struct iattr *attr)
 {
 	struct inode *inode = d_inode(dentry);

@@ -792,7 +792,7 @@ static int bch2_getattr(struct mnt_idmap *idmap,
 	return 0;
 }
 
-static int bch2_setattr(struct mnt_idmap *idmap,
+static int bch2_setattr(const struct mnt_idmap *idmap,
 			struct dentry *dentry, struct iattr *iattr)
 {
 	struct bch_inode_info *inode = to_bch_ei(dentry->d_inode);

@@ -183,7 +183,7 @@ static int tracefs_getattr(struct mnt_idmap *idmap,
 	return 0;
 }
 
-static int tracefs_setattr(struct mnt_idmap *idmap, struct dentry *dentry,
+static int tracefs_setattr(const struct mnt_idmap *idmap, struct dentry *dentry,
 			   struct iattr *attr)
 {
 	unsigned int ia_valid = attr->ia_valid;

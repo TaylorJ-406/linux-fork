@@ -894,7 +894,7 @@ ecryptfs_permission(const struct mnt_idmap *idmap, struct inode *inode,
  * All other metadata changes will be passed right to the lower filesystem,
  * and we will just update our inode to look like the lower.
  */
-static int ecryptfs_setattr(struct mnt_idmap *idmap,
+static int ecryptfs_setattr(const struct mnt_idmap *idmap,
 			    struct dentry *dentry, struct iattr *ia)
 {
 	int rc = 0;

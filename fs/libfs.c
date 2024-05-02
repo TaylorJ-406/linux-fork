@@ -794,7 +794,7 @@ EXPORT_SYMBOL(simple_rename);
  * on simple regular filesystems.  Anything that needs to change on-disk
  * or wire state on size changes needs its own setattr method.
  */
-int simple_setattr(struct mnt_idmap *idmap, struct dentry *dentry,
+int simple_setattr(const struct mnt_idmap *idmap, struct dentry *dentry,
 		   struct iattr *iattr)
 {
 	struct inode *inode = d_inode(dentry);
@@ -1630,7 +1630,7 @@ static int empty_dir_getattr(struct mnt_idmap *idmap,
 	return 0;
 }
 
-static int empty_dir_setattr(struct mnt_idmap *idmap,
+static int empty_dir_setattr(const struct mnt_idmap *idmap,
 			     struct dentry *dentry, struct iattr *attr)
 {
 	return -EPERM;

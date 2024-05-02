@@ -1101,9 +1101,9 @@ struct ceph_iattr {
 	struct ceph_fscrypt_auth	*fscrypt_auth;
 };
 
-extern int __ceph_setattr(struct mnt_idmap *idmap, struct inode *inode,
+extern int __ceph_setattr(const struct mnt_idmap *idmap, struct inode *inode,
 			  struct iattr *attr, struct ceph_iattr *cia);
-extern int ceph_setattr(struct mnt_idmap *idmap,
+extern int ceph_setattr(const struct mnt_idmap *idmap,
 			struct dentry *dentry, struct iattr *attr);
 extern int ceph_getattr(struct mnt_idmap *idmap,
 			const struct path *path, struct kstat *stat,

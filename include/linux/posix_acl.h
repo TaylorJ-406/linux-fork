@@ -76,7 +76,7 @@ struct posix_acl *get_cached_acl_rcu(struct inode *inode, int type);
 struct posix_acl *posix_acl_clone(const struct posix_acl *acl, gfp_t flags);
 
 #ifdef CONFIG_FS_POSIX_ACL
-int posix_acl_chmod(struct mnt_idmap *, struct dentry *, umode_t);
+int posix_acl_chmod(const struct mnt_idmap *, struct dentry *, umode_t);
 extern int posix_acl_create(struct inode *, umode_t *, struct posix_acl **,
 		struct posix_acl **);
 int posix_acl_update_mode(const struct mnt_idmap *, struct inode *, umode_t *,
@@ -109,7 +109,7 @@ int vfs_remove_acl(struct mnt_idmap *idmap, struct dentry *dentry,
 int posix_acl_listxattr(struct inode *inode, char **buffer,
 			ssize_t *remaining_size);
 #else
-static inline int posix_acl_chmod(struct mnt_idmap *idmap,
+static inline int posix_acl_chmod(const struct mnt_idmap *idmap,
 				  struct dentry *dentry, umode_t mode)
 {
 	return 0;

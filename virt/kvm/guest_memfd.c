@@ -314,7 +314,7 @@ static int kvm_gmem_getattr(struct mnt_idmap *idmap, const struct path *path,
 	return 0;
 }
 
-static int kvm_gmem_setattr(struct mnt_idmap *idmap, struct dentry *dentry,
+static int kvm_gmem_setattr(const struct mnt_idmap *idmap, struct dentry *dentry,
 			    struct iattr *attr)
 {
 	return -EINVAL;

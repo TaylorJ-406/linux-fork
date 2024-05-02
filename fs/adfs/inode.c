@@ -299,7 +299,7 @@ out:
  * later.
  */
 int
-adfs_notify_change(struct mnt_idmap *idmap, struct dentry *dentry,
+adfs_notify_change(const struct mnt_idmap *idmap, struct dentry *dentry,
 		   struct iattr *attr)
 {
 	struct inode *inode = d_inode(dentry);

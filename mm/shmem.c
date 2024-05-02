@@ -1150,7 +1150,7 @@ static int shmem_getattr(struct mnt_idmap *idmap,
 	return 0;
 }
 
-static int shmem_setattr(struct mnt_idmap *idmap,
+static int shmem_setattr(const struct mnt_idmap *idmap,
 			 struct dentry *dentry, struct iattr *attr)
 {
 	struct inode *inode = d_inode(dentry);

@@ -603,7 +603,7 @@ EXPORT_SYMBOL(__posix_acl_chmod);
  * performed on the raw inode simply pass @nop_mnt_idmap.
  */
 int
- posix_acl_chmod(struct mnt_idmap *idmap, struct dentry *dentry,
+ posix_acl_chmod(const struct mnt_idmap *idmap, struct dentry *dentry,
 		    umode_t mode)
 {
 	struct inode *inode = d_inode(dentry);
