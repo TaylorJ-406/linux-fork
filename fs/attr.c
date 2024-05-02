@@ -162,7 +162,7 @@ static bool chgrp_ok(const struct mnt_idmap *idmap,
  * Should be called as the first thing in ->setattr implementations,
  * possibly after taking additional locks.
  */
-int setattr_prepare(struct mnt_idmap *idmap, struct dentry *dentry,
+int setattr_prepare(const struct mnt_idmap *idmap, struct dentry *dentry,
 		    struct iattr *attr)
 {
 	struct inode *inode = d_inode(dentry);
@@ -300,7 +300,7 @@ EXPORT_SYMBOL(inode_newsize_ok);
  * that for "simple" filesystems, the struct inode is the inode storage.
  * The caller is free to mark the inode dirty afterwards if needed.
  */
-void setattr_copy(struct mnt_idmap *idmap, struct inode *inode,
+void setattr_copy(const struct mnt_idmap *idmap, struct inode *inode,
 		  const struct iattr *attr)
 {
 	unsigned int ia_valid = attr->ia_valid;
@@ -323,7 +323,7 @@ void setattr_copy(struct mnt_idmap *idmap, struct inode *inode,
 }
 EXPORT_SYMBOL(setattr_copy);
 
-int may_setattr(struct mnt_idmap *idmap, struct inode *inode,
+int may_setattr(const struct mnt_idmap *idmap, struct inode *inode,
 		unsigned int ia_valid)
 {
 	int error;
