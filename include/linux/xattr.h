@@ -42,7 +42,7 @@ struct xattr_handler {
 		   struct inode *inode, const char *name, void *buffer,
 		   size_t size);
 	int (*set)(const struct xattr_handler *,
-		   struct mnt_idmap *idmap, struct dentry *dentry,
+		   const struct mnt_idmap *idmap, struct dentry *dentry,
 		   struct inode *inode, const char *name, const void *buffer,
 		   size_t size, int flags);
 };
@@ -84,7 +84,7 @@ int __vfs_setxattr_locked(struct mnt_idmap *, struct dentry *,
 			  struct inode **);
 int vfs_setxattr(struct mnt_idmap *, struct dentry *, const char *,
 		 const void *, size_t, int);
-int __vfs_removexattr(struct mnt_idmap *, struct dentry *, const char *);
+int __vfs_removexattr(const struct mnt_idmap *, struct dentry *, const char *);
 int __vfs_removexattr_locked(struct mnt_idmap *, struct dentry *,
 			     const char *, struct inode **);
 int vfs_removexattr(struct mnt_idmap *, struct dentry *, const char *);

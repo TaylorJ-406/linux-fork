@@ -2209,7 +2209,7 @@ int security_inode_permission(struct inode *inode, int mask)
  *
  * Return: Returns 0 if permission is granted.
  */
-int security_inode_setattr(struct mnt_idmap *idmap,
+int security_inode_setattr(const struct mnt_idmap *idmap,
 			   struct dentry *dentry, struct iattr *attr)
 {
 	int ret;
@@ -2464,7 +2464,7 @@ int security_inode_need_killpriv(struct dentry *dentry)
  * Return: Return 0 on success.  If error is returned, then the operation
  *         causing setuid bit removal is failed.
  */
-int security_inode_killpriv(struct mnt_idmap *idmap,
+int security_inode_killpriv(const struct mnt_idmap *idmap,
 			    struct dentry *dentry)
 {
 	return call_int_hook(inode_killpriv, 0, idmap, dentry);

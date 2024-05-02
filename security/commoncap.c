@@ -319,7 +319,7 @@ int cap_inode_need_killpriv(struct dentry *dentry)
  *
  * Return: 0 if successful, -ve on error.
  */
-int cap_inode_killpriv(struct mnt_idmap *idmap, struct dentry *dentry)
+int cap_inode_killpriv(const struct mnt_idmap *idmap, struct dentry *dentry)
 {
 	int error;
 

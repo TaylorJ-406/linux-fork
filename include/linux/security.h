@@ -161,7 +161,7 @@ int cap_inode_setxattr(struct dentry *dentry, const char *name,
 int cap_inode_removexattr(struct mnt_idmap *idmap,
 			  struct dentry *dentry, const char *name);
 int cap_inode_need_killpriv(struct dentry *dentry);
-int cap_inode_killpriv(struct mnt_idmap *idmap, struct dentry *dentry);
+int cap_inode_killpriv(const struct mnt_idmap *idmap, struct dentry *dentry);
 int cap_inode_getsecurity(struct mnt_idmap *idmap,
 			  struct inode *inode, const char *name, void **buffer,
 			  bool alloc);
@@ -359,7 +359,7 @@ int security_inode_readlink(struct dentry *dentry);
 int security_inode_follow_link(struct dentry *dentry, struct inode *inode,
 			       bool rcu);
 int security_inode_permission(struct inode *inode, int mask);
-int security_inode_setattr(struct mnt_idmap *idmap,
+int security_inode_setattr(const struct mnt_idmap *idmap,
 			   struct dentry *dentry, struct iattr *attr);
 int security_inode_getattr(const struct path *path);
 int security_inode_setxattr(struct mnt_idmap *idmap,
@@ -379,7 +379,7 @@ int security_inode_listxattr(struct dentry *dentry);
 int security_inode_removexattr(struct mnt_idmap *idmap,
 			       struct dentry *dentry, const char *name);
 int security_inode_need_killpriv(struct dentry *dentry);
-int security_inode_killpriv(struct mnt_idmap *idmap, struct dentry *dentry);
+int security_inode_killpriv(const struct mnt_idmap *idmap, struct dentry *dentry);
 int security_inode_getsecurity(struct mnt_idmap *idmap,
 			       struct inode *inode, const char *name,
 			       void **buffer, bool alloc);
@@ -872,7 +872,7 @@ static inline int security_inode_permission(struct inode *inode, int mask)
 	return 0;
 }
 
-static inline int security_inode_setattr(struct mnt_idmap *idmap,
+static inline int security_inode_setattr(const struct mnt_idmap *idmap,
 					 struct dentry *dentry,
 					 struct iattr *attr)
 {
@@ -940,7 +940,7 @@ static inline int security_inode_need_killpriv(struct dentry *dentry)
 	return cap_inode_need_killpriv(dentry);
 }
 
-static inline int security_inode_killpriv(struct mnt_idmap *idmap,
+static inline int security_inode_killpriv(const struct mnt_idmap *idmap,
 					  struct dentry *dentry)
 {
 	return cap_inode_killpriv(idmap, dentry);

@@ -805,7 +805,7 @@ void evm_inode_post_removexattr(struct dentry *dentry, const char *xattr_name)
 	evm_update_evmxattr(dentry, xattr_name, NULL, 0);
 }
 
-static int evm_attr_change(struct mnt_idmap *idmap,
+static int evm_attr_change(const struct mnt_idmap *idmap,
 			   struct dentry *dentry, struct iattr *attr)
 {
 	struct inode *inode = d_backing_inode(dentry);
@@ -828,7 +828,7 @@ static int evm_attr_change(struct mnt_idmap *idmap,
  * Permit update of file attributes when files have a valid EVM signature,
  * except in the case of them having an immutable portable signature.
  */
-int evm_inode_setattr(struct mnt_idmap *idmap, struct dentry *dentry,
+int evm_inode_setattr(const struct mnt_idmap *idmap, struct dentry *dentry,
 		      struct iattr *attr)
 {
 	unsigned int ia_valid = attr->ia_valid;

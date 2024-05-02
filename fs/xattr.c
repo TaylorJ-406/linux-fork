@@ -502,7 +502,7 @@ vfs_listxattr(struct dentry *dentry, char *list, size_t size)
 EXPORT_SYMBOL_GPL(vfs_listxattr);
 
 int
-__vfs_removexattr(struct mnt_idmap *idmap, struct dentry *dentry,
+__vfs_removexattr(const struct mnt_idmap *idmap, struct dentry *dentry,
 		  const char *name)
 {
 	struct inode *inode = d_inode(dentry);

@@ -70,7 +70,7 @@ bool is_ima_appraise_enabled(void)
  *
  * Return 1 to appraise or hash
  */
-int ima_must_appraise(struct mnt_idmap *idmap, struct inode *inode,
+int ima_must_appraise(const struct mnt_idmap *idmap, struct inode *inode,
 		      int mask, enum ima_hooks func)
 {
 	u32 secid;
@@ -635,7 +635,7 @@ void ima_update_xattr(struct integrity_iint_cache *iint, struct file *file)
  * This function is called from notify_change(), which expects the caller
  * to lock the inode's i_mutex.
  */
-void ima_inode_post_setattr(struct mnt_idmap *idmap,
+void ima_inode_post_setattr(const struct mnt_idmap *idmap,
 			    struct dentry *dentry)
 {
 	struct inode *inode = d_backing_inode(dentry);

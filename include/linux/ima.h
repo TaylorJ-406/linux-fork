@@ -185,7 +185,7 @@ static inline void ima_post_key_create_or_update(struct key *keyring,
 
 #ifdef CONFIG_IMA_APPRAISE
 extern bool is_ima_appraise_enabled(void);
-extern void ima_inode_post_setattr(struct mnt_idmap *idmap,
+extern void ima_inode_post_setattr(const struct mnt_idmap *idmap,
 				   struct dentry *dentry);
 extern int ima_inode_setxattr(struct dentry *dentry, const char *xattr_name,
 		       const void *xattr_value, size_t xattr_value_len);
@@ -205,7 +205,7 @@ static inline bool is_ima_appraise_enabled(void)
 	return 0;
 }
 
-static inline void ima_inode_post_setattr(struct mnt_idmap *idmap,
+static inline void ima_inode_post_setattr(const struct mnt_idmap *idmap,
 					  struct dentry *dentry)
 {
 	return;
