@@ -774,7 +774,7 @@ xfs_inode_inherit_flags2(
  */
 int
 xfs_init_new_inode(
-	struct mnt_idmap	*idmap,
+	const struct mnt_idmap	*idmap,
 	struct xfs_trans	*tp,
 	struct xfs_inode	*pip,
 	xfs_ino_t		ino,
@@ -949,7 +949,7 @@ xfs_bumplink(
 
 int
 xfs_create(
-	struct mnt_idmap	*idmap,
+	const struct mnt_idmap	*idmap,
 	xfs_inode_t		*dp,
 	struct xfs_name		*name,
 	umode_t			mode,
@@ -1107,7 +1107,7 @@ xfs_create(
 
 int
 xfs_create_tmpfile(
-	struct mnt_idmap	*idmap,
+	const struct mnt_idmap	*idmap,
 	struct xfs_inode	*dp,
 	umode_t			mode,
 	struct xfs_inode	**ipp)
