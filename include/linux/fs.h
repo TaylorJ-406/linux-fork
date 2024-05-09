@@ -2067,7 +2067,7 @@ struct inode_operations {
 			struct file *, umode_t);
 	struct posix_acl *(*get_acl)(struct mnt_idmap *, struct dentry *,
 				     int);
-	int (*set_acl)(struct mnt_idmap *, struct dentry *,
+	int (*set_acl)(const struct mnt_idmap *, struct dentry *,
 		       struct posix_acl *, int);
 	int (*fileattr_set)(struct mnt_idmap *idmap,
 			    struct dentry *dentry, struct fileattr *fa);
@@ -3005,7 +3005,7 @@ extern struct inode *new_inode(struct super_block *sb);
 extern void free_inode_nonrcu(struct inode *inode);
 extern int setattr_should_drop_suidgid(struct mnt_idmap *, struct inode *);
 extern int file_remove_privs(struct file *);
-int setattr_should_drop_sgid(struct mnt_idmap *idmap,
+int setattr_should_drop_sgid(const struct mnt_idmap *idmap,
 			     const struct inode *inode);
 
 /*

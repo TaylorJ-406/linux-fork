@@ -110,7 +110,7 @@ out:
 	return ret;
 }
 
-int btrfs_set_acl(struct mnt_idmap *idmap, struct dentry *dentry,
+int btrfs_set_acl(const struct mnt_idmap *idmap, struct dentry *dentry,
 		  struct posix_acl *acl, int type)
 {
 	int ret;

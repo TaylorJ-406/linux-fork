@@ -82,7 +82,7 @@ extern int posix_acl_create(struct inode *, umode_t *, struct posix_acl **,
 int posix_acl_update_mode(const struct mnt_idmap *, struct inode *, umode_t *,
 			  struct posix_acl **);
 
-int simple_set_acl(struct mnt_idmap *, struct dentry *,
+int simple_set_acl(const struct mnt_idmap *, struct dentry *,
 		   struct posix_acl *, int);
 extern int simple_acl_create(struct inode *, struct inode *);
 

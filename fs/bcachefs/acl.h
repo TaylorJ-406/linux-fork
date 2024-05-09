@@ -33,7 +33,7 @@ struct posix_acl *bch2_get_acl(struct mnt_idmap *, struct dentry *, int);
 int bch2_set_acl_trans(struct btree_trans *, subvol_inum,
 		       struct bch_inode_unpacked *,
 		       struct posix_acl *, int);
-int bch2_set_acl(struct mnt_idmap *, struct dentry *, struct posix_acl *, int);
+int bch2_set_acl(const struct mnt_idmap *, struct dentry *, struct posix_acl *, int);
 int bch2_acl_chmod(struct btree_trans *, subvol_inum,
 		   struct bch_inode_unpacked *,
 		   umode_t, struct posix_acl **);

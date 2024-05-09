@@ -348,7 +348,7 @@ int bch2_set_acl_trans(struct btree_trans *trans, subvol_inum inum,
 	return bch2_err_matches(ret, ENOENT) ? 0 : ret;
 }
 
-int bch2_set_acl(struct mnt_idmap *idmap,
+int bch2_set_acl(const struct mnt_idmap *idmap,
 		 struct dentry *dentry,
 		 struct posix_acl *_acl, int type)
 {

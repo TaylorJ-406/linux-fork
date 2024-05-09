@@ -1014,7 +1014,7 @@ const struct xattr_handler nop_posix_acl_default = {
 };
 EXPORT_SYMBOL_GPL(nop_posix_acl_default);
 
-int simple_set_acl(struct mnt_idmap *idmap, struct dentry *dentry,
+int simple_set_acl(const struct mnt_idmap *idmap, struct dentry *dentry,
 		   struct posix_acl *acl, int type)
 {
 	int error;
