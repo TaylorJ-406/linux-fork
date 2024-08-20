@@ -1367,7 +1367,7 @@ static inline void i_gid_write(struct inode *inode, gid_t gid)
  * Return: whe inode's i_uid mapped down according to @idmap.
  * If the inode's i_uid has no mapping INVALID_VFSUID is returned.
  */
-static inline vfsuid_t i_uid_into_vfsuid(struct mnt_idmap *idmap,
+static inline vfsuid_t i_uid_into_vfsuid(const struct mnt_idmap *idmap,
 					 const struct inode *inode)
 {
 	return make_vfsuid(idmap, i_user_ns(inode), inode->i_uid);
@@ -1384,7 +1384,7 @@ static inline vfsuid_t i_uid_into_vfsuid(struct mnt_idmap *idmap,
  *
  * Return: true if @inode's i_uid field needs to be updated, false if not.
  */
-static inline bool i_uid_needs_update(struct mnt_idmap *idmap,
+static inline bool i_uid_needs_update(const struct mnt_idmap *idmap,
 				      const struct iattr *attr,
 				      const struct inode *inode)
 {
@@ -1402,7 +1402,7 @@ static inline bool i_uid_needs_update(struct mnt_idmap *idmap,
  * Safely update @inode's i_uid field translating the vfsuid of any idmapped
  * mount into the filesystem kuid.
  */
-static inline void i_uid_update(struct mnt_idmap *idmap,
+static inline void i_uid_update(const struct mnt_idmap *idmap,
 				const struct iattr *attr,
 				struct inode *inode)
 {
@@ -1419,7 +1419,7 @@ static inline void i_uid_update(struct mnt_idmap *idmap,
  * Return: the inode's i_gid mapped down according to @idmap.
  * If the inode's i_gid has no mapping INVALID_VFSGID is returned.
  */
-static inline vfsgid_t i_gid_into_vfsgid(struct mnt_idmap *idmap,
+static inline vfsgid_t i_gid_into_vfsgid(const struct mnt_idmap *idmap,
 					 const struct inode *inode)
 {
 	return make_vfsgid(idmap, i_user_ns(inode), inode->i_gid);
@@ -1436,7 +1436,7 @@ static inline vfsgid_t i_gid_into_vfsgid(struct mnt_idmap *idmap,
  *
  * Return: true if @inode's i_gid field needs to be updated, false if not.
  */
-static inline bool i_gid_needs_update(struct mnt_idmap *idmap,
+static inline bool i_gid_needs_update(const struct mnt_idmap *idmap,
 				      const struct iattr *attr,
 				      const struct inode *inode)
 {
@@ -1454,7 +1454,7 @@ static inline bool i_gid_needs_update(struct mnt_idmap *idmap,
  * Safely update @inode's i_gid field translating the vfsgid of any idmapped
  * mount into the filesystem kgid.
  */
-static inline void i_gid_update(struct mnt_idmap *idmap,
+static inline void i_gid_update(const struct mnt_idmap *idmap,
 				const struct iattr *attr,
 				struct inode *inode)
 {
@@ -1472,7 +1472,7 @@ static inline void i_gid_update(struct mnt_idmap *idmap,
  * an idmapped mount map the caller's fsuid according to @idmap.
  */
 static inline void inode_fsuid_set(struct inode *inode,
-				   struct mnt_idmap *idmap)
+				   const struct mnt_idmap *idmap)
 {
 	inode->i_uid = mapped_fsuid(idmap, i_user_ns(inode));
 }
@@ -1486,7 +1486,7 @@ static inline void inode_fsuid_set(struct inode *inode,
  * an idmapped mount map the caller's fsgid according to @idmap.
  */
 static inline void inode_fsgid_set(struct inode *inode,
-				   struct mnt_idmap *idmap)
+				   const struct mnt_idmap *idmap)
 {
 	inode->i_gid = mapped_fsgid(idmap, i_user_ns(inode));
 }
@@ -1503,7 +1503,7 @@ static inline void inode_fsgid_set(struct inode *inode,
  * Return: true if fsuid and fsgid is mapped, false if not.
  */
 static inline bool fsuidgid_has_mapping(struct super_block *sb,
-					struct mnt_idmap *idmap)
+					const struct mnt_idmap *idmap)
 {
 	struct user_namespace *fs_userns = sb->s_user_ns;
 	kuid_t kuid;
@@ -2243,7 +2243,7 @@ static inline bool sb_rdonly(const struct super_block *sb) { return sb->s_flags 
 #define IS_WHITEOUT(inode)	(S_ISCHR(inode->i_mode) && \
 				 (inode)->i_rdev == WHITEOUT_DEV)
 
-static inline bool HAS_UNMAPPED_ID(struct mnt_idmap *idmap,
+static inline bool HAS_UNMAPPED_ID(const struct mnt_idmap *idmap,
 				   struct inode *inode)
 {
 	return !vfsuid_valid(i_uid_into_vfsuid(idmap, inode)) ||
