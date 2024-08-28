@@ -198,7 +198,7 @@ int vfsgid_in_group_p(vfsgid_t vfsgid)
 #endif
 EXPORT_SYMBOL_GPL(vfsgid_in_group_p);
 
-static int copy_mnt_idmap(struct uid_gid_map *map_from,
+static int copy_mnt_idmap(const struct uid_gid_map *map_from,
 			  struct uid_gid_map *map_to)
 {
 	struct uid_gid_extent *forward, *reverse;
@@ -266,7 +266,7 @@ static void free_mnt_idmap(struct mnt_idmap *idmap)
 	kfree(idmap);
 }
 
-struct mnt_idmap *alloc_mnt_idmap(struct user_namespace *mnt_userns)
+struct mnt_idmap *__alloc_mnt_idmap(const struct uid_gid_map *uid_map, const struct uid_gid_map *gid_map)
 {
 	struct mnt_idmap *idmap;
 	int ret;
@@ -276,14 +276,24 @@ struct mnt_idmap *alloc_mnt_idmap(struct user_namespace *mnt_userns)
 		return ERR_PTR(-ENOMEM);
 
 	refcount_set(&idmap->count, 1);
-	ret = copy_mnt_idmap(&mnt_userns->uid_map, &idmap->uid_map);
+	ret = copy_mnt_idmap(uid_map, &idmap->uid_map);
 	if (!ret)
-		ret = copy_mnt_idmap(&mnt_userns->gid_map, &idmap->gid_map);
+		ret = copy_mnt_idmap(gid_map, &idmap->gid_map);
 	if (ret) {
 		free_mnt_idmap(idmap);
 		idmap = ERR_PTR(ret);
 	}
 	return idmap;
+}
+
+struct mnt_idmap *alloc_mnt_idmap(struct user_namespace *mnt_userns)
+{
+	return __alloc_mnt_idmap(&mnt_userns->uid_map, &mnt_userns->gid_map);
+}
+
+struct mnt_idmap *mnt_idmap_clone(const struct mnt_idmap *mnt_idmap)
+{
+	return __alloc_mnt_idmap(&mnt_idmap->uid_map, &mnt_idmap->gid_map);
 }
 
 /**

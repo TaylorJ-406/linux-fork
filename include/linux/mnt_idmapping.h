@@ -115,6 +115,9 @@ static inline bool vfsgid_eq_kgid(vfsgid_t vfsgid, kgid_t kgid)
 
 int vfsgid_in_group_p(vfsgid_t vfsgid);
 
+struct mnt_idmap *mnt_idmap_clone(const struct mnt_idmap *mnt_idmap);
+struct mnt_idmap *__alloc_mnt_idmap(const struct uid_gid_map *uid_map, const struct uid_gid_map *gid_map);
+
 struct mnt_idmap *mnt_idmap_get(struct mnt_idmap *idmap);
 void mnt_idmap_put(struct mnt_idmap *idmap);
 
