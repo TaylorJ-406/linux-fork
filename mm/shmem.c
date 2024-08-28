@@ -2459,7 +2459,7 @@ static struct offset_ctx *shmem_get_offset_ctx(struct inode *inode)
 	return &SHMEM_I(inode)->dir_offsets;
 }
 
-static struct inode *__shmem_get_inode(struct mnt_idmap *idmap,
+static struct inode *__shmem_get_inode(const struct mnt_idmap *idmap,
 					     struct super_block *sb,
 					     struct inode *dir, umode_t mode,
 					     dev_t dev, unsigned long flags)
@@ -2538,7 +2538,7 @@ static struct inode *__shmem_get_inode(struct mnt_idmap *idmap,
 }
 
 #ifdef CONFIG_TMPFS_QUOTA
-static struct inode *shmem_get_inode(struct mnt_idmap *idmap,
+static struct inode *shmem_get_inode(const struct mnt_idmap *idmap,
 				     struct super_block *sb, struct inode *dir,
 				     umode_t mode, dev_t dev, unsigned long flags)
 {
@@ -2566,7 +2566,7 @@ errout:
 	return ERR_PTR(err);
 }
 #else
-static inline struct inode *shmem_get_inode(struct mnt_idmap *idmap,
+static inline struct inode *shmem_get_inode(const struct mnt_idmap *idmap,
 				     struct super_block *sb, struct inode *dir,
 				     umode_t mode, dev_t dev, unsigned long flags)
 {
@@ -3382,7 +3382,7 @@ static int shmem_rmdir(struct inode *dir, struct dentry *dentry)
 	return shmem_unlink(dir, dentry);
 }
 
-static int shmem_whiteout(struct mnt_idmap *idmap,
+static int shmem_whiteout(const struct mnt_idmap *idmap,
 			  struct inode *old_dir, struct dentry *old_dentry)
 {
 	struct dentry *whiteout;
@@ -4771,7 +4771,7 @@ EXPORT_SYMBOL_GPL(shmem_truncate_range);
 #define shmem_acct_size(flags, size)		0
 #define shmem_unacct_size(flags, size)		do {} while (0)
 
-static inline struct inode *shmem_get_inode(struct mnt_idmap *idmap,
+static inline struct inode *shmem_get_inode(const struct mnt_idmap *idmap,
 				struct super_block *sb, struct inode *dir,
 				umode_t mode, dev_t dev, unsigned long flags)
 {
