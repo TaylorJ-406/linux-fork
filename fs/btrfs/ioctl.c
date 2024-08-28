@@ -937,7 +937,7 @@ static int btrfs_may_delete(struct mnt_idmap *idmap,
 }
 
 /* copy of may_create in fs/namei.c() */
-static inline int btrfs_may_create(struct mnt_idmap *idmap,
+static inline int btrfs_may_create(const struct mnt_idmap *idmap,
 				   struct inode *dir, struct dentry *child)
 {
 	if (d_really_is_positive(child))

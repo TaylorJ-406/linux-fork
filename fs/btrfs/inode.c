@@ -8975,7 +8975,7 @@ out_notrans:
 	return ret;
 }
 
-static struct inode *new_whiteout_inode(struct mnt_idmap *idmap,
+static struct inode *new_whiteout_inode(const struct mnt_idmap *idmap,
 					struct inode *dir)
 {
 	struct inode *inode;
