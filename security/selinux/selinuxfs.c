@@ -1929,7 +1929,7 @@ static struct dentry *sel_make_dir(struct dentry *dir, const char *name,
 	return dentry;
 }
 
-static int reject_all(struct mnt_idmap *idmap, struct inode *inode, int mask)
+static int reject_all(const struct mnt_idmap *idmap, struct inode *inode, int mask)
 {
 	return -EPERM;	// no access for anyone, root or no root.
 }

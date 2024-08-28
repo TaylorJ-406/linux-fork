@@ -241,7 +241,7 @@ static int eventfs_get_attr(struct mnt_idmap *idmap,
 	return 0;
 }
 
-static int eventfs_permission(struct mnt_idmap *idmap,
+static int eventfs_permission(const struct mnt_idmap *idmap,
 			      struct inode *inode, int mask)
 {
 	set_top_events_ownership(inode);

@@ -2035,7 +2035,7 @@ int wrap_directory_iterator(struct file *, struct dir_context *,
 struct inode_operations {
 	struct dentry * (*lookup) (struct inode *,struct dentry *, unsigned int);
 	const char * (*get_link) (struct dentry *, struct inode *, struct delayed_call *);
-	int (*permission) (struct mnt_idmap *, struct inode *, int);
+	int (*permission) (const struct mnt_idmap *, struct inode *, int);
 	struct posix_acl * (*get_inode_acl)(struct inode *, int, bool);
 
 	int (*readlink) (struct dentry *, char __user *,int);
@@ -2755,8 +2755,8 @@ static inline int bmap(struct inode *inode,  sector_t *block)
 
 int notify_change(struct mnt_idmap *, struct dentry *,
 		  struct iattr *, struct inode **);
-int inode_permission(struct mnt_idmap *, struct inode *, int);
-int generic_permission(struct mnt_idmap *, struct inode *, int);
+int inode_permission(const struct mnt_idmap *, struct inode *, int);
+int generic_permission(const struct mnt_idmap *, struct inode *, int);
 static inline int file_permission(struct file *file, int mask)
 {
 	return inode_permission(file_mnt_idmap(file),

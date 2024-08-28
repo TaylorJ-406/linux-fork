@@ -9751,7 +9751,7 @@ int btrfs_prealloc_file_range_trans(struct inode *inode,
 					   min_size, actual_len, alloc_hint, trans);
 }
 
-static int btrfs_permission(struct mnt_idmap *idmap,
+static int btrfs_permission(const struct mnt_idmap *idmap,
 			    struct inode *inode, int mask)
 {
 	struct btrfs_root *root = BTRFS_I(inode)->root;

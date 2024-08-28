@@ -945,7 +945,7 @@ static int xattr_mount_check(struct super_block *s)
 	return 0;
 }
 
-int reiserfs_permission(struct mnt_idmap *idmap, struct inode *inode,
+int reiserfs_permission(const struct mnt_idmap *idmap, struct inode *inode,
 			int mask)
 {
 	/*

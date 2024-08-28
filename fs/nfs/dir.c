@@ -3264,7 +3264,7 @@ static int nfs_execute_ok(struct inode *inode, int mask)
 	return ret;
 }
 
-int nfs_permission(struct mnt_idmap *idmap,
+int nfs_permission(const struct mnt_idmap *idmap,
 		   struct inode *inode,
 		   int mask)
 {
